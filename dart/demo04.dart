@@ -33,7 +33,7 @@ void main(List<String> args) {
   // 修改数组长度
   var list5 = List.filled(3, '');
   // list5.length = 1; // 数组长度不能被修改，因为这是一个固定长度的数组
-  // print(list5);
+  print(list5);
 
   // ========================
   // 修改数组长度2

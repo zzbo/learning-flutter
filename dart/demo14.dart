@@ -71,7 +71,8 @@ void main(List<String> args) {
   print('=========================');
 
   // 定义一个命名参数的方法
-  String printUserInfo3(String userName, { int age: 18, String sex: '男' }) {
+  String printUserInfo3(String userName, { int age: 18, String sex =  '男' }) {
+    print('printUserInfo3::');
     if (age is int) {
       return '$userName | $sex | $age';
     } else {
