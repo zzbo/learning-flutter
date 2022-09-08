@@ -19,3 +19,9 @@ class A {
     this.name = '${name}___';
   }
 }
+
+class Other {
+  printInfo() {
+    print('Class other printInfo method.');
+  }
+}
