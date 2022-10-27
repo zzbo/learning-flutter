@@ -1,4 +1,4 @@
-// ListView.builder
+// 动态列表以及循环动态
 import 'package:flutter/material.dart';
 
 List listData = [
@@ -86,23 +86,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(listData);
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
-      child: ListView.builder(
-        itemCount: listData.length,
-        itemBuilder: (context, index) {
-          return Column(
-            children: [
-              ListTile(
-                title: Text(listData[index]['title']),
-                subtitle: Text(listData[index]['author']),
-              ),
-              const Divider(),
-            ],
-          );
-        }
+      child: ListView(
+        padding: const EdgeInsets.all(10),
+        children: [
+          ...renderListData(),
+          ...initList()
+        ]
       )
     );
   }

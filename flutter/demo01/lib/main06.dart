@@ -1,3 +1,4 @@
+// 垂直滚动
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         ),
         const Divider(),
         Container(
-          width: 100,
+          width: 100, // 垂直滚动列表，子元素设置宽度无效
           height: 100,
           margin: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
