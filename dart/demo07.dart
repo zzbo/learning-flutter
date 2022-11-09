@@ -21,9 +21,11 @@ void main(List<String> args) {
   // =======================
   bool a2 = true;
   bool b2 = false;
+  Map map1 = {};
 
   print(a2 && b2);
   print(a2 || b2);
+  print(map1['b'] ?? 3); // 在 dart 中，应该用 ?? 为代替 || 这类或操作符用法。
 
   // =======================
   var person = {
