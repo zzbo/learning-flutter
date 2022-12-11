@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 把 GridView 放到 Column 中，要加入 Expanded
+    // 把 GridView 放到 Column 中，要加入 Expanded，或者在 Gridview.count 中添加 shrinkWrap: true 属性
     // https://stackoverflow.com/questions/49943272/flutter-gridview-in-column-whats-solution
     return Column(
       children: [
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
-            childAspectRatio: 0.7,
+            childAspectRatio: 0.8, // 子元素在横轴长度和主轴长度的比例
             physics: const NeverScrollableScrollPhysics(), // 禁止用户滚动
             children: [
               Container(
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
         ),
         Expanded(
           child: GridView.extent(
-            maxCrossAxisExtent: 180, // 横轴子元素的最大长度
+            maxCrossAxisExtent: 120, // 横轴子元素的最大长度
             children: const [
               Icon(Icons.bike_scooter, color: Colors.red),
               Icon(Icons.safety_check, color: Colors.red),
@@ -91,6 +91,25 @@ class MyApp extends StatelessWidget {
               Icon(Icons.radar, color: Colors.red),
               Icon(Icons.policy, color: Colors.red),
             ]
+          )
+        ),
+        Expanded(
+          child: GridView.builder( // 使用 GridView.builder 构建网格布局
+            itemCount: 60,
+            // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent // 实现 GridView.extent 功能
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount( // 实现 GridView.count 功能
+              crossAxisCount: 8,
+              mainAxisSpacing: 10.0,
+              crossAxisSpacing: 10.0,
+            ), 
+            itemBuilder: (context, index) {
+              return Container(
+                color: Colors.green,
+                child: Center(
+                  child: Text('${index + 1}', style: const TextStyle(color: Colors.white),)
+                )
+              );
+            }
           )
         )
       ],
