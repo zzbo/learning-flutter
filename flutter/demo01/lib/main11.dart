@@ -36,11 +36,31 @@ class MyApp extends StatelessWidget {
         Padding( // 使用 Padding 来实现边距时，边距不包含背景颜色。
           padding: const EdgeInsets.all(20),
           child: Container(
-            color: Colors.blue,
-            child: const Text('AAAA'),
+            color: Colors.orange,
+            child: const Text('AAAABBBB'),
           ),
-        )
+        ),
+        const MyIcon(icon: Icons.home, color: Colors.blue),
+        const MyIcon(icon: Icons.search, color: Colors.pink),
+        const MyIcon(icon: Icons.adb_sharp, color: Colors.lightGreen),
+        const MyIcon(icon: Icons.account_box_sharp, color: Colors.indigo),
       ],
+    );
+  }
+}
+
+class MyIcon extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  const MyIcon({Key? key, this.icon = Icons.abc, this.color = Colors.white}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: color,
+      width: 60,
+      height: 60,
+      child: Icon(icon, color: Colors.white, size: 28),
     );
   }
 }
