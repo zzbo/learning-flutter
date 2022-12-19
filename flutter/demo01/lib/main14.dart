@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize= MediaQuery.of(context).size;
+    print('###screenSize $screenSize');
+
     return Container(
       width: 200,
       height: 200,
@@ -29,9 +32,9 @@ class MyApp extends StatelessWidget {
           Positioned(
             left: 0,
             bottom: 0,
+            width: 100, // 在 Positioned 中无法使用 double.infinity
+            height: 100,
             child: Container(
-              width: 100,
-              height: 100,
               color: Colors.blue,
             )
           ),
